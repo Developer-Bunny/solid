@@ -1,0 +1,6 @@
+## JetBrains IDE artifacts
+.idea/
+cmake-build-*/
+
+## Build directory
+build*/
