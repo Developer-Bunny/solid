@@ -7,10 +7,10 @@
 
 namespace Indexer {
 
-class saver {
+class Saver {
     public:
-    saver();
-    ~saver();
+    Saver();
+    ~Saver();
 
     void save(const char* path);
 };

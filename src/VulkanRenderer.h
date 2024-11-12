@@ -10,13 +10,28 @@
 
 class VulkanRenderer
 {
-    public:
-    VulkanRenderer(SDL_Window *window);
+public:
+    explicit VulkanRenderer(SDL_Window* window);
     ~VulkanRenderer();
 
-    VkInstance createInstance();
+    void createInstance();
+    VkInstance getInstance();
 
+    void setupDebugUtils();
+private:
+    SDL_Window* window;
+    VkInstance instance{};
+    void cleanVulkan();
+
+    PFN_vkCreateDebugUtilsMessengerEXT vkCreateDebugUtilsMessengerEXT{ nullptr };
+    PFN_vkDestroyDebugUtilsMessengerEXT vkDestroyDebugUtilsMessengerEXT{ nullptr };
+    PFN_vkSetDebugUtilsObjectNameEXT vkSetDebugUtilsObjectNameEXT{ nullptr };
+
+    VkDebugUtilsMessengerEXT debugMessenger;
+
+    bool debugUtilsSupported = false;
 };
+
 
 
 #endif //VULKANRENDERER_H

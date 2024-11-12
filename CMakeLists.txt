@@ -30,12 +30,14 @@ set(IMGUI_FILES
 
 # Configurar el ejecutable con los archivos de Dear ImGui
 add_executable(solid
-        src/Saver.cpp
-        src/Saver.h
+        src/saver.cpp
+        src/saver.h
         main.cpp
         ${IMGUI_FILES}
         src/VulkanRenderer.cpp
         src/VulkanRenderer.h
+        src/DebugConfig.h
+        src/DebugConfig.cpp
 )
 
 # Incluir directorios específicos para solid
