@@ -29,6 +29,20 @@ public:
         std::printf("\n");
     }
 
+    template <typename... T>
+    static void verbose(const char* _format, T&&... args)
+    {
+        if (!DEBUG) return;
+
+        const std::time_t t = std::time(nullptr);
+        char timeStr[100];
+        std::strftime(timeStr, sizeof(timeStr), "[%Y-%m-%d %H:%M:%S]", std::localtime(&t));
+
+        std::printf("%s VERBOSE: ", timeStr);
+        std::printf(_format, std::forward<T>(args)...);
+        std::printf("\n");
+    }
+
     // Vulkan Stuff
     static const std::unordered_map<VkDebugUtilsMessageSeverityFlagBitsEXT, const char*> messageSeverityFlags;
     static const std::unordered_map<VkDebugUtilsMessageTypeFlagsEXT, const char*> messageTypeFlags;

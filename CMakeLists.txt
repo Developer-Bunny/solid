@@ -25,7 +25,6 @@ set(IMGUI_FILES
         libs/imgui/imgui_draw.cpp
         libs/imgui/imgui_tables.cpp
         libs/imgui/imgui_widgets.cpp
-        libs/imgui/backends/imgui_impl_sdl3.cpp
 )
 
 # Configurar el ejecutable con los archivos de Dear ImGui
